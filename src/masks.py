@@ -16,10 +16,6 @@ def get_mask_card_number(card_number: Union[str]) -> str:
     return masked_card_number
 
 
-# masked_card = get_mask_card_number("1234567812345678")
-# print(masked_card)
-
-
 def get_mask_account(card_number: Union[str]) -> str:
     """Функция принимает на вход номер счета и возвращает его маску"""
 
