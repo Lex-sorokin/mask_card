@@ -1,9 +1,9 @@
 [project]
-name = "ddd"
+name = "mask_card"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Алексей Коновалов",email = "you@example.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"
