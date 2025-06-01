@@ -16,8 +16,6 @@
 git clone
 git@github.com:Lex-sorokin/mask_card.git
 
-
-
 2. Перейдите в директорию проекта:
 
 C:\Users\Admin\PycharmProjects\package-roman
@@ -26,7 +24,6 @@ C:\Users\Admin\PycharmProjects\package-roman
 3. Установите необходимые зависимости:
 
 pip install -r requirements.txt
-
 
 
 Использование
