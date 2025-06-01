@@ -1,5 +1,3 @@
-from typing import Union
-
 _oper = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -8,7 +6,7 @@ _oper = [
 ]
 
 
-def filter_by_state(operations: Union[list], state: str = "EXECUTED") -> list:
+def filter_by_state(operations: list[dict], state: str = "EXECUTED") -> list:
     """
     Фильтрует операции по статусу
     :param operations: список словарей (транзакций)
@@ -22,7 +20,7 @@ def filter_by_state(operations: Union[list], state: str = "EXECUTED") -> list:
     return result
 
 
-def sort_by_date(operations: Union[list], sorting: bool = True) -> list:
+def sort_by_date(operations: list, sorting: bool = True) -> list:
     """Функция, которая сортирует списки словарей по дате."""
     result = sorted(operations, key=lambda operation: operation.get("date"), reverse=sorting)
     return result
