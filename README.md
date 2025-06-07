@@ -23,7 +23,7 @@ C:\Users\Admin\PycharmProjects\package-roman
 
 3. Установите необходимые зависимости:
 
-pip install -r requirements.txt
+poetry install
 
 
 Использование
@@ -66,3 +66,15 @@ sort_by_date(
 ]
 )
 )
+
+## Тесты
+
+Структура тестов:
+
+```
+tests/
+├── test_masks.py # Тесты масок (проверены 2 функции)
+├── test_processing.py # Тесты обработки (1 фикстура)
+└── test_widget.py # Тесты виджетов (5 параметризованных тестов)
+```
+Покрытие тестами 100%
