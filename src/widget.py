@@ -13,7 +13,7 @@ def mask_account_card(card_info: Union[str]) -> str:
         type_card = match.group(1).strip()  # "Visa Platinum"
         number_card = match.group(2)  # "7000792289606361"
     else:
-        print("Строка не соответствует формату")
+        return "Строка не соответствует формату"
 
     if type_card == "Счет":
         masked_number = get_mask_account(number_card)
@@ -29,5 +29,9 @@ def get_date(date: Union[str]) -> str:
     return correct_date
 
 
-# print(mask_account_card("Счет 73654108430135874305"))
-# print(get_date("2024-03-11T02:26:18.671407"))
+print(mask_account_card("Maestro 1596837868705199"))
+print(mask_account_card("Счет 64686473678894779589"))
+print(mask_account_card("MasterCard 7158300734726758"))
+print(mask_account_card("Счет 35383033474447895560"))
+print(mask_account_card("Visa Classic 6831982476737658"))
+print(get_date("2024-03-11T02:26:18.671407"))
