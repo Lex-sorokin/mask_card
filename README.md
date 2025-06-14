@@ -32,7 +32,7 @@ poetry install
 
 from src.masks import get_mask_account, get_mask_card_number
 
-# Пример использования get_mask_account
+# Пример использования get_mask_card_number
 
 print(get_mask_card_number("1234567812345678"))
 
@@ -66,6 +66,22 @@ sort_by_date(
 ]
 )
 )
+# Пример работы генератора filter_by_currency
+assert next(generator) == {
+        "id": 873106923,
+        "state": "EXECUTED",
+        "date": "2019-03-23T01:09:46.296404",
+        "operationAmount": {"amount": "43318.34", "currency": {"name": "руб.", "code": "RUB"}},
+        "description": "",
+        "from": "Счет 44812258784861134719",
+        "to": "Счет 74489636417521191160",
+    }
+
+# Пример работы генератора test_transaction_descriptions
+assert next(generator) == "Перевод организации"
+
+# Пример работы генератора test_card_number_generator
+assert next(gen) == "0000 0000 0000 0005"
 
 ## Тесты
 
@@ -74,7 +90,8 @@ sort_by_date(
 ```
 tests/
 ├── test_masks.py # Тесты масок (проверены 2 функции)
-├── test_processing.py # Тесты обработки (1 фикстура)
-└── test_widget.py # Тесты виджетов (5 параметризованных тестов)
+├── test_processing.py # Тесты обработки (проверены 2 функции)
+├── test_widget.py # Тесты виджетов (5 параметризованных тестов, 2 теста функций)
+└── test_generators.py # Тесты генераторов (тест 1 функции фикстурой, 2 теста функций)
 ```
 Покрытие тестами 100%
