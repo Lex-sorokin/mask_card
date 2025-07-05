@@ -13,6 +13,7 @@ def open_json_file(path: str) -> list[dict]:
     except Exception:
         return []
 
+
 def transaction_amount(transaction: dict) -> float:
     """Функция, которая конвертирует валюту в рубли"""
     # currency = transaction['operationAmount']["currency"]["code"]
