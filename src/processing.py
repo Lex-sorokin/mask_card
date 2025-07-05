@@ -16,4 +16,3 @@ def sort_by_date(operations: list, sorting: bool = True) -> list:
     """Функция, которая сортирует списки словарей по дате."""
     result = sorted(operations, key=lambda operation: operation.get("date"), reverse=sorting)
     return result
-
