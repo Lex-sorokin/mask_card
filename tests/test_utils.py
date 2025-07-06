@@ -13,7 +13,9 @@ def test_open_json_file():
 
 
 def test_transaction_amount():
-    assert transaction_amount({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "c": "RUB"}}}) == 0.0
+    assert transaction_amount(
+        {"operationAmount": {"amount": "100", "currency": {"name": "RUB", "c": "RUB"}}}
+    ) == 0.0
     assert transaction_amount(
         {"operationAmount": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}
     ) == 100
