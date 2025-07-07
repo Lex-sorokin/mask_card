@@ -1,12 +1,13 @@
 from typing import Generator
 
 
-def filter_by_currency(transactions_list: list, currency: str) -> Generator[list]:
+def filter_by_currency(transactions_list: list[dict], currency: str) -> Generator:
     """
     Функция, которая принимает на вход список транзакций, и возвращает генератор выдающий списки транзакций по валюте
     """
     for transaction in transactions_list:
-        if transaction["operationAmount"]["currency"]["code"] == currency:
+        if (transaction.get("operationAmount", {}).get("currency", {}).get("code", {}) == currency or
+                transaction.get("currency_code", {}) == currency):
             yield transaction
 
 

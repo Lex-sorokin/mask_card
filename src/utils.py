@@ -1,4 +1,6 @@
 import json
+import re
+from collections import Counter
 
 from loger import module_logger
 from src.external_api import converter
@@ -36,3 +38,26 @@ def transaction_amount(transaction: dict) -> float:
     except (KeyError, ValueError) as d:
         logger.error(f'Ошибка: {d}')
         return 0.0
+
+
+def search_transaction(operations: list[dict], search_string: str) -> list[dict]:
+    """
+    Функция, которая осуществляет поиск по словарю.
+    """
+    result = []
+    re_pattern = re.compile(search_string, re.IGNORECASE)
+    for operation in operations:
+        if re_pattern.search(str(operation.get("description", ""))):
+            result.append(operation)
+    return result
+
+
+def process_bank_operation(data: list[dict], categories: list) -> dict:
+    """
+    Функция, которая осуществляет подсчёт количества категорий в транзакциях.
+    """
+    count_categories = []
+    for operation in data:
+        if operation.get("description", "") in categories:
+            count_categories.append(operation.get("description", ""))
+    return dict(Counter(count_categories))

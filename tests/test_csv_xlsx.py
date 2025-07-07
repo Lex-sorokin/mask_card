@@ -18,7 +18,7 @@ def test_read_csv(mock_read_csv):
             'description': 'Перевод с карты на карту'
         }
     ]
-    mock_read_csv.return_value.to_dict.return_value = operations
+    mock_read_csv.return_value.replace.return_value.to_dict.return_value = operations
     result = read_csv("test.csv")
     assert result == operations
 
@@ -38,6 +38,6 @@ def test_read_excel(mock_read_excel):
             'description': 'Перевод с карты на карту'
         }
     ]
-    mock_read_excel.return_value.to_dict.return_value = operations
+    mock_read_excel.return_value.replace.return_value.to_dict.return_value = operations
     result = read_excel("test.xlsx")
     assert result == operations
